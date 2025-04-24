@@ -1,5 +1,6 @@
-### cs32_fp/design.py
+### cs32_fp/game.py
 import random
+from team import Team
 
 # Open and read the file
 qa_dict = {}
@@ -17,7 +18,7 @@ def get_question_list(file_name):
         qa_dict[question] = answer
 
 def ask_trivia_question(team_num):
-    print(f"{teams[team_num][0]} will go!")
+    print(f"{teams[team_num].name} will go!")
 
     #generate random question
     random_q = random.choice(list(qa_dict.keys()))
@@ -29,20 +30,22 @@ def ask_trivia_question(team_num):
     if a_given == correct_a:
         print("Correct!")
         #increase team's score
-        teams[team_num] = (teams[team_num][0], teams[team_num][1] + 1)
+        teams[team_num].add_points(1)
     else:
         print(f"Incorrect. The correct answer was {correct_a}.")
 
 def ending_message():
     print("Thank you for playing trivia!")
 
-    team_1, score_1 = teams[0]
-    team_2, score_2 = teams[1]
+    team_1 = teams[0]
+    score_1 = team_1.score
+    team_2 = teams[1]
+    score_2 = team_2.score
 
     if score_1 > score_2:
-        print(f"{team_1} won by {score_1 - score_2} points!")
+        print(f"{team_1.name} won by {score_1 - score_2} points!")
     elif score_2 > score_1:
-        print(f"{team_2} won by {score_2 - score_1} points!")
+        print(f"{team_2.name} won by {score_2 - score_1} points!")
     else:
         print(f"It's a tie! Both teams have {score_1} points.")
 
@@ -58,10 +61,10 @@ def main():
     #for our sample, will do 2 teams
     team_1 = input("Enter the first team name ")
     team_2 = input("Enter the second team name ")
-    teams.extend([(team_1, 0), (team_2, 0)])
+    teams.extend([Team(team_1), Team(team_2)])
 
     random_number = random.randint(0, len(teams) - 1)
-    while teams[0][1] < 3 and teams[1][1] < 3:
+    while teams[0].score < 3 and teams[1].score < 3:
         ask_trivia_question(random_number)
         random_number = (random_number + 1) % 2
 
@@ -69,3 +72,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
