@@ -1,2 +1,100 @@
-Q: Alabama
-A: M
+Q: What is the capital of Alabama?
+A: Montgomery
+Q: What is the capital of Alaska?
+A: Juneau
+Q: What is the capital of Arizona?
+A: Phoenix
+Q: What is the capital of Arkansas?
+A: Little Rock
+Q: What is the capital of California?
+A: Sacramento
+Q: What is the capital of Colorado?
+A: Denver
+Q: What is the capital of Connecticut?
+A: Hartford
+Q: What is the capital of Delaware?
+A: Dover
+Q: What is the capital of Florida?
+A: Tallahassee
+Q: What is the capital of Georgia?
+A: Atlanta
+Q: What is the capital of Hawaii?
+A: Honolulu
+Q: What is the capital of Idaho?
+A: Boise
+Q: What is the capital of Illinois?
+A: Springfield
+Q: What is the capital of Indiana?
+A: Indianapolis
+Q: What is the capital of Iowa?
+A: Des Moines
+Q: What is the capital of Kansas?
+A: Topeka
+Q: What is the capital of Kentucky?
+A: Frankfort
+Q: What is the capital of Louisiana?
+A: Baton Rouge
+Q: What is the capital of Maine?
+A: Augusta
+Q: What is the capital of Maryland?
+A: Annapolis
+Q: What is the capital of Massachusetts?
+A: Boston
+Q: What is the capital of Michigan?
+A: Lansing
+Q: What is the capital of Minnesota?
+A: St. Paul
+Q: What is the capital of Mississippi?
+A: Jackson
+Q: What is the capital of Missouri?
+A: Jefferson City
+Q: What is the capital of Montana?
+A: Helena
+Q: What is the capital of Nebraska?
+A: Lincoln
+Q: What is the capital of Nevada?
+A: Carson City
+Q: What is the capital of New Hampshire?
+A: Concord
+Q: What is the capital of New Jersey?
+A: Trenton
+Q: What is the capital of New Mexico?
+A: Santa Fe
+Q: What is the capital of New York?
+A: Albany
+Q: What is the capital of North Carolina?
+A: Raleigh
+Q: What is the capital of North Dakota?
+A: Bismarck
+Q: What is the capital of Ohio?
+A: Columbus
+Q: What is the capital of Oklahoma?
+A: Oklahoma City
+Q: What is the capital of Oregon?
+A: Salem
+Q: What is the capital of Pennsylvania?
+A: Harrisburg
+Q: What is the capital of Rhode Island?
+A: Providence
+Q: What is the capital of South Carolina?
+A: Columbia
+Q: What is the capital of South Dakota?
+A: Pierre
+Q: What is the capital of Tennessee?
+A: Nashville
+Q: What is the capital of Texas?
+A: Austin
+Q: What is the capital of Utah?
+A: Salt Lake City
+Q: What is the capital of Vermont?
+A: Montpelier
+Q: What is the capital of Virginia?
+A: Richmond
+Q: What is the capital of Washington?
+A: Olympia
+Q: What is the capital of West Virginia?
+A: Charleston
+Q: What is the capital of Wisconsin?
+A: Madison
+Q: What is the capital of Wyoming?
+A: Cheyenne
