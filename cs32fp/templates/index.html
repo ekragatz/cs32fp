@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trivia Game</title>
+</head>
+<body>
+
+  <div style="text-align:center; margin-top: 20px;">
+      <img src="{{ url_for('static', filename='images/mike_smith.png') }}" alt="Mike Smith Trivia Host" width="300">
+  </div>
+  
+  <h1>Welcome to Trivia!</h1>
+  <form method="POST">
+    <label>Team 1 Name:</label><br>
+    <input type="text" name="team1" required><br><br>
+    <label>Team 2 Name:</label><br>
+    <input type="text" name="team2" required><br><br>
+    <button type="submit">Start Game</button>
+  </form>
+</body>
+</html>
