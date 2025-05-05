@@ -15,5 +15,5 @@ This is a terminal-based trivia game built in Python that supports multiple team
 - themed_q_a directory # Contains text files by themes
 - static folder # contains folders of images of Mike, Kitty, and Cosmo!
 - example_questions.txt #testing file of questions and answers
-- 
+- templates directory #contains the html code for the webpage 
 - README.md # This file
