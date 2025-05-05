@@ -21,11 +21,12 @@ theme_manager = ThemeManager(themes)
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
+        # store initial game data in session
         session['team1'] = request.form['team1']
         session['team2'] = request.form['team2']
         session['score1'] = 0
         session['score2'] = 0
-        session['turn'] = random.randint(0, 1)
+        session['turn'] = random.randint(0, 1) # randomly decides who goes first
         session['game_over'] = False
         return redirect(url_for("play"))
     return render_template("index.html")
@@ -41,6 +42,7 @@ def play():
     turn = session['turn']
 
     if request.method == "POST":
+        # player picked a theme, now get a question from that theme
         chosen_theme = request.form['theme']
         question, correct = theme_manager.get_random_question(chosen_theme)
         session['current_theme'] = chosen_theme
@@ -48,6 +50,7 @@ def play():
         session['correct_answer'] = correct
         return redirect(url_for("question"))
 
+    # show available themes to current team
     available_themes = theme_manager.get_available_themes()
     return render_template("play.html",
                            team=team_names[turn],
@@ -69,6 +72,7 @@ def question():
         if not answer:
             error = "❗ Please enter an answer before submitting."
         else:
+            # check if answer is correct
             is_correct = (answer.lower() == correct_answer.lower())
             if is_correct:
                 if turn == 0:
@@ -102,6 +106,7 @@ def question():
                                    error=None,
                                    feedback_image=feedback_image)
 
+    # first time showing the question (GET request) 
     return render_template("question.html",
                            team=team_names[turn],
                            team1=team_names[0],
