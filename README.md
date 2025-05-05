@@ -9,9 +9,11 @@ This is a terminal-based trivia game built in Python that supports multiple team
 - Alternates between teams, tracks team scores, and announces a winner when a team reaches 3 points.
 
 #File Structure
-- game.py # Main game logic
+- app.py # Main game logic
 - team.py # Team class
-- themes/
-  example_questions.txt # Sample trivia file
-  Harvard-CS-qa.txt # theme example
+- themes.py #ThemeManager class
+- themed_q_a directory # Contains text files by themes
+- static folder # contains folders of images of Mike, Kitty, and Cosmo!
+- example_questions.txt #testing file of questions and answers
+- 
 - README.md # This file
