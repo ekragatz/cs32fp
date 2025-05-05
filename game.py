@@ -3,7 +3,7 @@ import random
 from team import Team
 from themes import ThemeManager
 
-themes = ['Tennis', 'CS32', 'Cosmo', 'Harvard CS', 'Crimson Sports']
+themes = ['Tennis', 'Harvard CS', 'Crimson Sports', 'Countries and Capitals', 'Famous Alumni', 'History of Women', 'Name that Movie', 'States and Capitals', 'World History', 'Famous Books', 'True or False', 'Brain Teasers']
 theme_manager = ThemeManager(themes)
 teams = []
 max_score = 5
