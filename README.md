@@ -12,7 +12,6 @@ This is a terminal-based trivia game built in Python that supports multiple team
 - game.py # Main game logic
 - team.py # Team class
 - themes/
-  science-qa.txt # Sample trivia file
-  history-qa.txt # Add more themed files here
-
+  example_questions.txt # Sample trivia file
+  Harvard-CS-qa.txt # theme example
 - README.md # This file
