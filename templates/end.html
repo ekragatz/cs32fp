@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Game Over</title>
+</head>
+<body>
+  <h1>🏁 Game Over!</h1>
+
+  <p><strong>{{ team1 }}</strong> Score: {{ score1 }}</p>
+  <p><strong>{{ team2 }}</strong> Score: {{ score2 }}</p>
+
+  {% if score1 > score2 %}
+    <h2>🎉 {{ team1 }} wins!</h2>
+  {% elif score2 > score1 %}
+    <h2>🎉 {{ team2 }} wins!</h2>
+  {% else %}
+    <h2>🤝 It's a tie!</h2>
+  {% endif %}
+
+  <br>
+  <a href="/">🔁 Play Again</a>
+
+  <div style="text-align:center; margin-top: 40px;">
+      <img src="{{ url_for('static', filename='images/confetti_host.png') }}" alt="Confetti Celebration" width="300">
+  </div>
+</body>
+</html>
