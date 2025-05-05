@@ -1,4 +1,5 @@
 # app.py (Flask-based version of your trivia game)
+# handles user input, team setup, theme selection, question display, answer validation, scoring, and game completion through various routes
 from flask import Flask, render_template, request, redirect, url_for, session
 from themes import ThemeManager
 from team import Team
