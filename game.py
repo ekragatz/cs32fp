@@ -1,75 +1,66 @@
 ### cs32_fp/game.py
 import random
 from team import Team
+from themes import ThemeManager
 
-# Open and read the file
-qa_dict = {}
+themes = ['Tennis', 'CS32', 'Cosmo', 'Harvard CS', 'Crimson Sports']
+theme_manager = ThemeManager(themes)
 teams = []
+max_score = 5
 
-def get_question_list(file_name):
-    #open and read file
-    with open('example_questions.txt', 'r') as file:
-        lines = file.readlines()
-
-    # store lines in dictionary
-    for i in range(0, len(lines), 2):
-        question= lines[i].strip()[3:]
-        answer = lines[i+1].strip()[3:]
-        qa_dict[question] = answer
-
-def ask_trivia_question(team_num):
-    print(f"{teams[team_num].name} will go!")
-
-    #generate random question
-    random_q = random.choice(list(qa_dict.keys()))
-    correct_a = qa_dict[random_q].lower()
-
-    #ask the random question to choosen team
-    a_given = input(random_q).strip().lower()
-
-    if a_given == correct_a:
-        print("Correct!")
-        #increase team's score
-        teams[team_num].add_points(1)
-    else:
-        print(f"Incorrect. The correct answer was {correct_a}.")
-
-def ending_message():
-    print("Thank you for playing trivia!")
-
-    team_1 = teams[0]
-    score_1 = team_1.score
-    team_2 = teams[1]
-    score_2 = team_2.score
-
-    if score_1 > score_2:
-        print(f"{team_1.name} won by {score_1 - score_2} points!")
-    elif score_2 > score_1:
-        print(f"{team_2.name} won by {score_2 - score_1} points!")
-    else:
-        print(f"It's a tie! Both teams have {score_1} points.")
-
-def main():
+def opening_message():
     print("Welcome to Trivia!")
-
-    #for our example, can change this later
     print("We will play best of 5!")
 
-    #populate dictionary of questions
-    get_question_list('example_questions.txt')
+def select_theme():
+    available_themes = theme_manager.get_available_themes()
+    print("Available themes:", ", ".join(available_themes))
+    while True:
+        theme = input("Select a theme: ").strip()
+        if theme in available_themes:
+            return theme
+        print("Invalid theme. Please choose from the listed options.")
 
-    #for our sample, will do 2 teams
-    team_1 = input("Enter the first team name ")
-    team_2 = input("Enter the second team name ")
+def ask_trivia_question(team_num, theme):
+    question, correct_answer = theme_manager.get_random_question(theme)
+    print(f"\nQuestion from {theme}:\n> {question}")
+    answer = input("Your answer: ").strip().lower()
+
+    if answer.strip().lower() == correct_answer.strip().lower():
+        print("Correct!")
+        teams[team_num].add_points(1)
+    else:
+        print(f"Incorrect. The correct answer was: {correct_answer}")
+
+def ending_message():
+    print("\nThank you for playing trivia!")
+    team_1, team_2 = teams[0], teams[1]
+
+    if team_1.score > team_2.score:
+        print(f"{team_1.name} won by {team_1.score - team_2.score} points!")
+    elif team_2.score > team_1.score:
+        print(f"{team_2.name} won by {team_2.score - team_1.score} points!")
+    else:
+        print(f"It's a tie! Both teams have {team_1.score} points.")
+
+def main():
+    opening_message()
+
+    # Team setup
+    team_1 = input("Enter the first team name: ")
+    team_2 = input("Enter the second team name: ")
     teams.extend([Team(team_1), Team(team_2)])
 
-    random_number = random.randint(0, len(teams) - 1)
-    while teams[0].score < 3 and teams[1].score < 3:
-        ask_trivia_question(random_number)
-        random_number = (random_number + 1) % 2
+    # Trivia loop
+    current_team = random.randint(0, 1)
+    while teams[0].score < max_score and teams[1].score < max_score:
+        print(f"{teams[current_team].name}, it's your turn to pick a theme.")
+        theme_choice = select_theme()
+
+        ask_trivia_question(current_team, theme_choice)
+        current_team = (current_team + 1) % 2
 
     ending_message()
 
 if __name__ == '__main__':
     main()
-
