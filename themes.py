@@ -1,4 +1,6 @@
 ### cs32_fp/themes.py
+# This file defines ThemeManager class, which handles loading trivia questions and answers from text files, organzing them by theme, and tracking which questions have already been asked.
+# Used by main trivia game to manage themed question sets
 import random
 
 # this class manages all the trivia themes and their questions
