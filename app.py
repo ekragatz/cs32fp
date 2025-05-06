@@ -5,8 +5,8 @@ from themes import ThemeManager
 from team import Team
 import random
 
-app = Flask(__name__)
-app.secret_key = "trivia_secret"
+app = Flask(__name__) # creates web app
+app.secret_key = "trivia_secret" # stores game data temporarily
 
 # Load themes and questions
 themes = [
@@ -15,8 +15,7 @@ themes = [
     'States and Capitals', 'World History', 'Famous Books', 'True or False',
     'Brain Teasers'
 ]
-theme_manager = ThemeManager(themes)
-
+theme_manager = ThemeManager(themes) 
 
 # Store teams and turn in session-based gameplay
 @app.route("/", methods=["GET", "POST"])
@@ -29,14 +28,14 @@ def index():
         session['score2'] = 0
         session['turn'] = random.randint(0, 1) # randomly decides who goes first
         session['game_over'] = False
-        return redirect(url_for("play"))
+        return redirect(url_for("play")) # go to the play screen
     return render_template("index.html")
 
 
 @app.route("/play", methods=["GET", "POST"])
 def play():
     if session.get("game_over"):
-        return redirect(url_for("end"))
+        return redirect(url_for("end")) # if someone has won go to the end screen
 
     team_names = [session['team1'], session['team2']]
     scores = [session['score1'], session['score2']]
@@ -49,7 +48,7 @@ def play():
         session['current_theme'] = chosen_theme
         session['current_question'] = question
         session['correct_answer'] = correct
-        return redirect(url_for("question"))
+        return redirect(url_for("question")) # go to the question screen
 
     # show available themes to current team
     available_themes = theme_manager.get_available_themes()
@@ -103,7 +102,7 @@ def question():
                                    theme=session['current_theme'],
                                    question=session['current_question'],
                                    result=result,
-                                   show_form=False,
+                                   show_form=False, # hides the answer form 
                                    error=None,
                                    feedback_image=feedback_image)
 
@@ -117,7 +116,7 @@ def question():
                            theme=session['current_theme'],
                            question=session['current_question'],
                            result=None,
-                           show_form=True,
+                           show_form=True, # shows the answer form 
                            error=error,
                            feedback_image=None)
 
